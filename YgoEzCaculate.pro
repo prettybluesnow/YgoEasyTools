@@ -19,12 +19,14 @@ SOURCES += \
     Drive/ccardadd.cpp \
     Drive/ccomboadd.cpp \
     App/main.cpp \
-    App/mainwindow.cpp
+    App/mainwindow.cpp \
+    Drive/chandsimit.cpp
 
 HEADERS += \
     Drive/ccardadd.h \
     Drive/ccomboadd.h \
-    App/mainwindow.h
+    App/mainwindow.h \
+    Drive/chandsimit.h
 
 FORMS += \
     Form/ccardadd.ui \
