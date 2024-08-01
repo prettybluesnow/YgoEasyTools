@@ -16,22 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    ccaculate.cpp \
-    ccardadd.cpp \
-    ccomboadd.cpp \
-    main.cpp \
-    mainwindow.cpp
+    Drive/ccardadd.cpp \
+    Drive/ccomboadd.cpp \
+    App/main.cpp \
+    App/mainwindow.cpp
 
 HEADERS += \
-    ccaculate.h \
-    ccardadd.h \
-    ccomboadd.h \
-    mainwindow.h
+    Drive/ccardadd.h \
+    Drive/ccomboadd.h \
+    App/mainwindow.h
 
 FORMS += \
-    ccardadd.ui \
-    ccomboadd.ui \
-    mainwindow.ui
+    Form/ccardadd.ui \
+    Form/ccomboadd.ui \
+    Form/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
