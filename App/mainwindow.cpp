@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->setTabText(1, c_lsName.at(1));
     _WinStartInit();
     connect(&m_tHandImit, SIGNAL(signalReflashTabel()), this, SLOT(slotReflashComboTable()));
+    setWindowIcon(QIcon(":/Icon/Resources/icon.png"));
 }
 
 MainWindow::~MainWindow()
