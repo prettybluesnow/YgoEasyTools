@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-#define TRY_TIMES       (500)
+#define TRY_TIMES       (50000)
 
 class CHandsImit : public QObject
 {
@@ -35,6 +35,9 @@ public:
     void CaculateRate(int nHand, int nDeck);
     int AddCard(QStringList *pDeck);
     bool ScanOneCombo(QStringList &ltHand, SelectComo *pCombo);
+
+signals:
+    void signalReflashTabel();
 };
 
 #endif // CHANDSIMIT_H

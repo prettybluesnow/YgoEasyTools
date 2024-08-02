@@ -41,5 +41,6 @@ private:
 public slots:
     void slotUpdateCardTabel();
     void slotUpdateComboTable();
+    void slotReflashComboTable();
 };
 #endif // MAINWINDOW_H

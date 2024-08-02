@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->setTabText(0, c_lsName.at(0));
     ui->tabWidget->setTabText(1, c_lsName.at(1));
     _WinStartInit();
+    connect(&m_tHandImit, SIGNAL(signalReflashTabel()), this, SLOT(slotReflashComboTable()));
 }
 
 MainWindow::~MainWindow()
@@ -110,10 +111,24 @@ void MainWindow::slotUpdateComboTable()
     ui->tableCombo->setItem(nRow, 1, fRate);
 }
 
+void MainWindow::slotReflashComboTable()
+{
+    int nRow = 0;
+    for(CHandsImit::SelectComo Combo : m_tHandImit.m_ltCombo)
+    {
+        ui->tableCombo->setItem(nRow, 1, new QTableWidgetItem(QString::number(Combo.fRate, 'f', 2).append("%")));
+        nRow++;
+    }
+}
+
 
 void MainWindow::on_start_Clear_clicked()   // 清空
 {
     QStringList ltHead;
+    ui->tableCard->clear();
+    ui->tableCombo->clear();
+    m_tHandImit.m_ltCard.clear();
+    m_tHandImit.m_ltCombo.clear();
     ltHead << "卡片名称" << "投入数量";
     _WinTableReset(*ui->tableCard, ltHead);
     ltHead.clear();
@@ -137,5 +152,8 @@ void MainWindow::on_start_addCombo_clicked()
 
 void MainWindow::on_start_Ok_clicked()
 {
-    m_tHandImit.CaculateRate(5, 40);
+    int nHand, nDeck;
+    nHand = ui->start_handNum->currentText().toUInt();
+    nDeck = ui->start_deckNum->currentText().toUInt();
+    m_tHandImit.CaculateRate(nHand, nDeck);
 }

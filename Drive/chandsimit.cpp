@@ -28,10 +28,8 @@ int CHandsImit::AddCombo(QStringList ltCardNames)
 
     for (QString Str : ltCardNames)
     {
-        for (int i = 0; i < Str.size(); ++i)
-        {
-            nCheck += Str.at(i).toLatin1();
-        }
+        QByteArray ba = Str.toUtf8();
+        for(char c : ba)    nCheck += c;
     }
     for (SelectComo tCombo : m_ltCombo)
     {
@@ -75,6 +73,11 @@ void CHandsImit::CaculateRate(int nHand, int nDeck)
             ScanOneCombo(ltHand, &tCombo);
         }
     }
+    for (int i = 0; i < m_ltCombo.size(); i++)
+    {
+        m_ltCombo[i].fRate = (float)m_ltCombo[i].nCout / (TRY_TIMES / 100);
+    }
+    emit signalReflashTabel();
     return;
 }
 
